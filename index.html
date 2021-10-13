@@ -5,81 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
 </head>
 
 <body>
-
+    <h1>Rock Paper Scissor</h1>
+    <!-- <h3>JavaScript Game</h3> -->
+    <div class="arena-container">
+        <!-- <h3>Arena</h3> -->
+        <h3 class="info">Play Game</h3>
+        <div class="arena">
+            <div>
+                <h4 class="player-score">0</h4>
+                <p>Player</p>
+                <button class="player-display"></button>
+            </div>
+            <p>VS</p>
+            <div>
+                <h4 class="computer-score">0</h4>
+                <p>Computer</p>
+                <button class="computer-display"></button>
+            </div>
+        </div>
+    </div>
+    <h3>Player Select</h3>
+    <div class="buttons">
+        <button class="rock"></button>
+        <button class="paper"></button>
+        <button class="scissors"></button>
+    </div>
 </body>
-<script>
-    function computerPlay() {
-        randomPick = Math.floor((Math.random() * 3) + 1)
-        if (randomPick === 1) {
-            return "Rock"
-        } else if (randomPick === 2) {
-            return "Paper"
-        } else if (randomPick === 3) {
-            return "Scissors"
-        } else {
-            return "Error"
-        }
-    }
-
-    function playRound(player, computer) {
-        player = player.toUpperCase()
-        computer = computer.toUpperCase()
-        console.log(player + "-" + computer)
-
-        if (player == "ROCK" && computer == "PAPER") {
-            // return "You Lose! Paper beats Rock"
-            return false
-        } else if (player == "PAPER" && computer == "SCISSORS") {
-            // return "You Lose! Scissors beats Paper"
-            return false
-        } else if (player == "SCISSORS" && computer == "ROCK") {
-            // return "You Lose! Rock beats Scissors"
-            return false
-        } else if (player == "ROCK" && computer == "SCISSORS") {
-            // return "You Won! Rock beats Scissors"
-            return true
-        } else if (player == "PAPER" && computer == "ROCK") {
-            // return "You Won! Paper beats Rock"
-            return true
-        } else if (player == "SCISSORS" && computer == "PAPER") {
-            // return "You Won! Scissors beats Paper"
-            return true
-        } else {
-            return playRound(player, computerPlay())
-        }
-    }
-
-    function game() {
-        let playerScore = 0;
-        let computerScore = 0;
-        let result = false;
-
-        for (i = 1; i <= 5; i++) {
-            playerSelection = prompt("Rock, Paper or Scissors?", "Rock")
-            computerSelection = computerPlay()
-            result = playRound(playerSelection, computerSelection)
-            console.log(result)
-            if (result) {
-                console.log("win")
-                playerScore++
-            } else {
-                console.log("lose")
-                computerScore++
-            }
-        }
-
-        if (playerScore > computerScore) {
-            return `You Won! ${playerScore} out 5`
-        } else {
-            return `You Lose! ${playerScore} out 5`
-        }
-    }
-
-    console.log(game())
-</script>
 
 </html>
